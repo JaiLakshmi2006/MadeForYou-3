@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Us 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="center">
+    <h1>Us 💕</h1>
+    <p id="memoryText"></p>
+
+    <button onclick="goNext()">Keep going 🥰</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bfName = params.get("name") || "SHAN";
+
+    document.getElementById("memoryText").innerHTML =
+      `From late-night texts to random laughs,<br>${bfName}, every moment with you feels like home.
+      <br><br>Our memories keep us close, and I cherish every one of them.`;
+
+    function goNext() {
+      location.href = `feelings.html?name=${bfName}`;
+    }
+  </script>
+</body>
+</html>

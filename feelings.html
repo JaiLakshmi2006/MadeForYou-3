@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+  <div class="center">
+    <h1 id="heading"></h1>
+    <p>
+      You are my favorite notification,<br>
+      my comfort place,<br>
+      ALWAYS MINE.
+      <br><br>I LOVE YAPPING ABOUT MY DAY TO YOU, FROM THE MOST IMPORTANT EVENTS TO THE MOST REDICULOUS THINGS, I LOVE SHARING EVERYTHING WITH YOU. <br>
+    </p>
+
+    <button onclick="goNext()">One last thing 👀</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bfName = params.get("name") || "BUJJI";
+
+    document.getElementById("heading").innerHTML = `${bfName} 💖`;
+
+    function goNext() {
+      location.href = `question.html?name=${bfName}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="center">
+    <h1 id="title"></h1>
+    <p>Welcome to the page designed specially for you, even miles apart, my heart always finds you.</p>
+
+    <button onclick="goNext()">Let's Begin 💫</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bfName = params.get("name") || "SHAN";
+
+    document.getElementById("title").innerHTML = `Hey ${bfName} ❤️`;
+
+    function goNext() {
+      location.href = `memories.html?name=${bfName}`;
+    }
+  </script>
+</body>
+</html>

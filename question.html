@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Question 😏</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="center">
+    <h1 id="qTitle"></h1>
+    <p>Do you smile when you see my name pop up?</p>
+
+    <div class="buttons">
+      <button onclick="goNext()">Yes 😌</button>
+      <button onclick="goNext()">Obviously 🙄</button>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bfName = params.get("name") || "SHAN";
+
+    document.getElementById("qTitle").innerHTML =
+      `Quick question, BUJJIIIIII😏`;
+
+    function goNext() {
+      location.href = `valentine.html?name=${bfName}`;
+    }
+  </script>
+</body>
+</html>

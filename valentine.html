@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be Mine? 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="center">
+
+    <h1 id="question"></h1>
+
+    <div class="buttons">
+      <button onclick="celebrate()">YES ❤️</button>
+      <button class="no" ontouchstart="moveButton()" onclick="moveButton()">
+        No 💔
+      </button>
+    </div>
+
+    <div id="loveMessage" class="hidden">
+      <h1 id="yay"></h1>
+      <p id="finalText"></p>
+    </div>
+
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const bfName = params.get("name") || "Love";
+
+    document.getElementById("question").innerHTML =
+      `💌 Will you be my Valentine,SHANTHANU N :) ? 💌`;
+
+    document.getElementById("yay").innerHTML =
+      `YAYYY 💖🎉`;
+
+    document.getElementById("finalText").innerHTML =
+      `${bfName}, You just made my day 🥹💕 <BR>
+        I love youuu very much..<3`;
+
+    function moveButton() {
+      const btn = document.querySelector('.no');
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+      btn.style.position = "fixed";
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+
+    function celebrate() {
+      document.querySelector(".buttons").style.display = "none";
+      document.getElementById("question").style.display = "none";
+      document.getElementById("loveMessage").classList.remove("hidden");
+
+      confetti();
+      hearts();
+    }
+
+    function confetti() {
+      for (let i = 0; i < 60; i++) {
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * window.innerWidth + "px";
+        c.style.backgroundColor =
+          `hsl(${Math.random()*360},100%,60%)`;
+        c.style.animationDuration = (Math.random()*2 + 2) + "s";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4000);
+      }
+    }
+
+    function hearts() {
+      for (let i = 0; i < 25; i++) {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "💖";
+        h.style.left = Math.random() * window.innerWidth + "px";
+        h.style.animationDuration = (Math.random()*2 + 3) + "s";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5000);
+      }
+    }
+  </script>
+</body>
+</html>
